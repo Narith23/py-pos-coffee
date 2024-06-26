@@ -1,9 +1,18 @@
 import os
 
-APP_NAME = os.getenv("APP_NAME", "My App")
+APP_NAME = os.getenv("APP_NAME", "PYTHON COFFEE APP")
+APP_DESCRIPTION = os.getenv("APP_DESCRIPTION", "Python Coffee App API")
+APP_VERSION = os.getenv("APP_VERSION", "0.0.1")
+APP_ENV = os.getenv("APP_ENV", "development")
+DEBUG = os.getenv("DEBUG", True)
 
 MONGO_DETAILS = "mongodb://localhost:27017" # database url
 MONGO_DATABASE = "py-pos-coffee"  # database name
+
+JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY", "F6ZGXKh_sCz0cPmtWXbeaafkoz2FmPM6Z5VoBkjfcx6YLF_tRIP0riFAzT_i9wa5")
+JWT_ALGORITHM = os.getenv("JWT_ALGORITHM", "HS256")
+JWT_ACCESS_TOKEN_EXPIRE_MINUTES = os.getenv("JWT_ACCESS_TOKEN_EXPIRE_MINUTES", 720)
+JWT_REFRESH_TOKEN_EXPIRE_MINUTES = os.getenv("JWT_REFRESH_TOKEN_EXPIRE_MINUTES", 1440)
 
 JWT_ACCESS_TOKEN_EXPIRE_MINUTES = 770
 JWT_REFRESH_TOKEN_EXPIRE_MINUTES = 1440
