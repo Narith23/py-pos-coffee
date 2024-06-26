@@ -4,6 +4,7 @@ from fastapi import APIRouter
 from app.router.admin.user import router as admin_user_router
 from app.router.admin.categories import router as admin_categories_router
 from app.router.admin.products import router as admin_products_router
+from app.router.admin.orders import router as admin_orders_router
 # client
 from app.router.client.user import router as client_user_router
 # auth
@@ -17,6 +18,7 @@ router = APIRouter(
 router.include_router(admin_user_router, prefix="/admin", tags=["admin user".upper()])
 router.include_router(admin_categories_router, prefix="/admin", tags=["admin categories".upper()])
 router.include_router(admin_products_router, prefix="/admin", tags=["admin products".upper()])
+router.include_router(admin_orders_router, prefix="/admin", tags=["admin orders".upper()])
 # client
 router.include_router(client_user_router, prefix="/client", tags=["client"])
 # auth
