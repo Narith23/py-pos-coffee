@@ -384,7 +384,7 @@
             <li class="breadcrumb-item">
               <a href="/api/admin/dashboard">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">All Products</li>
+            <li class="breadcrumb-item active">Create Product</li>
           </ol>
         </nav>
       </div>
@@ -392,41 +392,71 @@
 
       <section class="section">
         <div class="row">
-          <div class="col-12">
+          <div class="col-8">
             <div class="card">
               <div class="card-body">
-                <div class="d-flex align-items-center justify-content-between my-3">
-                    <a type="button" class="btn btn-primary" href="/api/admin/products/web/create"><i class="bi bi-plus-circle me-1"> </i>Add Newm</a>
-                </div>
+                <!-- General Form Elements -->
+                <!-- <form class="mt-3" method="post" action="/api/admin/products/web/create"> -->
+                  <div class="row my-3">
+                    <label for="inputText" class="col-sm-2 col-form-label"
+                      >Name</label
+                    >
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="name" />
+                    </div>
+                  </div>
 
-                <!-- Table with hoverable rows -->
-                <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th scope="col">Name</th>
-                      <th scope="col">Price</th>
-                      <th scope="col">QTY</th>
-                      <th scope="col">Category</th>
-                      <th scope="col">Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {% for item in cursor %}
-                        <tr>
-                            <td>{{ item.name }}</td>
-                            <td>{{ item.price }}</td>
-                            <td>{{ item.qty }}</td>
-                            <td>{{ item.category.name }}</td>
-                            <td>
-                                <a type="button" class="btn btn-sm btn-secondary"><i class="bi bi-eye"></i></a>
-                                <a type="button" class="btn btn-sm btn-success"><i class="bi bi-pencil"></i></a>
-                                <a type="button" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></a>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                  </tbody>
-                </table>
-                <!-- End Table with hoverable rows -->
+                  <div class="row mb-3">
+                    <label for="inputText" class="col-sm-2 col-form-label"
+                      >Description</label
+                    >
+                    <div class="col-sm-10">
+                      <textarea
+                        class="tinymce-editor"
+                        name="description"
+                      ></textarea>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="inputText" class="col-sm-2 col-form-label"
+                      >Price</label
+                    >
+                    <div class="col-sm-10">
+                      <input type="number" class="form-control" name="price" />
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="inputText" class="col-sm-2 col-form-label"
+                      >Qty</label
+                    >
+                    <div class="col-sm-10">
+                      <input type="number" class="form-control" name="qty" />
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Category</label>
+                    <div class="col-sm-10">
+                      <select class="form-select" aria-label="Default select example" name="category_id">
+                        <option selected>Open this select menu</option>
+                        {% for item in category %}
+                            <option value="{{ item._id }}">{{ item.name }}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="col-12 text-end">
+                      <button id="submit" onclick="submitCreate()" class="btn btn-primary">
+                        Submit Form
+                      </button>
+                    </div>
+                  </div>
+                <!-- </form> -->
+                <!-- End General Form Elements -->
               </div>
             </div>
           </div>
@@ -469,5 +499,7 @@
 
     <!-- Template Main JS File -->
     <script src="/static/assets/js/main.js"></script>
+    <script src="/static/assets/js/product.js"></script>
+    <script src="/static/assets/js/jquery.js"></script>
   </body>
 </html>
