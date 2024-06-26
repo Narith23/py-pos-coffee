@@ -5,6 +5,7 @@ from app.router.admin.user import router as admin_user_router
 from app.router.admin.categories import router as admin_categories_router
 from app.router.admin.products import router as admin_products_router
 from app.router.admin.orders import router as admin_orders_router
+from app.router.admin.dashboard import router as admin_dashboard_router
 # client
 from app.router.client.user import router as client_user_router
 # auth
@@ -15,6 +16,7 @@ router = APIRouter(
 )
 
 # admin
+router.include_router(admin_dashboard_router, prefix="/admin", tags=["admin dashboard".upper()])
 router.include_router(admin_user_router, prefix="/admin", tags=["admin user".upper()])
 router.include_router(admin_categories_router, prefix="/admin", tags=["admin categories".upper()])
 router.include_router(admin_products_router, prefix="/admin", tags=["admin products".upper()])
