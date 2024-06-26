@@ -45,7 +45,7 @@ micro service for installation.
 
 
 
-  CREATE TABLE Users (
+<!-- CREATE TABLE Users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
@@ -108,4 +108,4 @@ CREATE TABLE Payments (
     payment_method VARCHAR(50),
     paid_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (order_id) REFERENCES Orders(order_id)
-);
+); -->
